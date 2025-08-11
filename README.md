@@ -1,6 +1,30 @@
 # Creating a MID Server User in ServiceNow
 
-## 1️⃣ Steps to Create a MID Server User
+
+## Communication Process Diagram
+
+```plaintext
++-------------------+            +------------------------+
+|  ServiceNow       |            |   MID Server Host      |
+|  (Cloud Instance) |<---------->|   MID Server Service   |
++-------------------+   HTTPS    +------------------------+
+         ^                                   |
+         |                                   |  Protocols
+         |                                   v
+         |                          +--------------------+
+         |                          |  Target Systems    |
+         |                          |  (e.g., Servers,   |
+         |                          |   Databases, etc.) |
+         |                          +--------------------+
+         |
+         |   1. ServiceNow sends discovery/integration jobs to ECC Queue
+         |   2. MID Server pulls jobs securely via `mid.user`
+         |   3. MID Server executes jobs on target systems
+         |   4. MID Server sends results back to ServiceNow ECC Queue
+
+---
+
+## Steps to Create a MID Server User
 
 ### 1. Login as Admin
 Log in to ServiceNow with an `admin` account.
@@ -48,25 +72,59 @@ During MID Server installation:
 
 ---
 
-##  Communication Process Diagram (Colored ASCII)
+###  Create via Script (optional)
 
-> Note: Color display works in terminals that support ANSI escape codes. GitHub will show plain ASCII.
+```javascript
+var user = new GlideRecord('sys_user');
+user.initialize();
+user.user_name = 'mid.user';
+user.first_name = 'MID';
+user.last_name = 'User';
+user.password = 'StrongPassword123!';
+user.active = true;
+user.web_service_access_only = true;
+var userID = user.insert();
 
-```ansi
-\033[1;34m+-------------------+\033[0m            \033[1;36m+------------------------+\033[0m
-\033[1;34m|  ServiceNow       |\033[0m            \033[1;36m|   MID Server Host      |\033[0m
-\033[1;34m|  (Cloud Instance) |\033[0m<\033[1;32m----------\033[0m>\033[1;36m|   MID Server Service   |\033[0m
-\033[1;34m+-------------------+\033[0m   \033[1;33mHTTPS\033[0m    \033[1;36m+------------------------+\033[0m
+var role = new GlideRecord('sys_user_has_role');
+role.initialize();
+role.user = userID;
+role.role.setDisplayValue('mid_server');
+role.insert();
+
+```
+--
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## Communication Process Diagram
+
+```plaintext
++-------------------+            +------------------------+
+|  ServiceNow       |            |   MID Server Host      |
+|  (Cloud Instance) |<---------->|   MID Server Service   |
++-------------------+   HTTPS    +------------------------+
          ^                                   |
-         |                                   |  \033[1;35mProtocols\033[0m
+         |                                   |  Protocols
          |                                   v
-                                   \033[1;32m+--------------------+\033[0m
-                                   \033[1;32m|  Target Systems    |\033[0m
-                                   \033[1;32m|  (Servers, DBs,    |\033[0m
-                                   \033[1;32m|   Apps, etc.)      |\033[0m
-                                   \033[1;32m+--------------------+\033[0m
+         |                          +--------------------+
+         |                          |  Target Systems    |
+         |                          |  (e.g., Servers,   |
+         |                          |   Databases, etc.) |
+         |                          +--------------------+
+         |
+         |   1. ServiceNow sends discovery/integration jobs to ECC Queue
+         |   2. MID Server pulls jobs securely via `mid.user`
+         |   3. MID Server executes jobs on target systems
+         |   4. MID Server sends results back to ServiceNow ECC Queue
 
-\033[1;33m1.\033[0m ServiceNow sends jobs to ECC Queue  
-\033[1;33m2.\033[0m MID Server pulls jobs using `mid.user`  
-\033[1;33m3.\033[0m MID Server executes tasks on target systems  
-\033[1;33m4.\033[0m MID Server sends results back to ECC Queue
