@@ -106,26 +106,3 @@ role.insert();
 
 
 
----
-
-## Communication Process Diagram
-
-```plaintext
-+-------------------+            +------------------------+
-|  ServiceNow       |            |   MID Server Host      |
-|  (Cloud Instance) |<---------->|   MID Server Service   |
-+-------------------+   HTTPS    +------------------------+
-         ^                                   |
-         |                                   |  Protocols
-         |                                   v
-         |                          +--------------------+
-         |                          |  Target Systems    |
-         |                          |  (e.g., Servers,   |
-         |                          |   Databases, etc.) |
-         |                          +--------------------+
-         |
-         |   1. ServiceNow sends discovery/integration jobs to ECC Queue
-         |   2. MID Server pulls jobs securely via `mid.user`
-         |   3. MID Server executes jobs on target systems
-         |   4. MID Server sends results back to ServiceNow ECC Queue
-
