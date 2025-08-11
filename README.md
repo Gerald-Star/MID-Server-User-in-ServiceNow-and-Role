@@ -1,0 +1,72 @@
+# Creating a MID Server User in ServiceNow
+
+## 1️⃣ Steps to Create a MID Server User
+
+### 1. Login as Admin
+Log in to ServiceNow with an `admin` account.
+
+---
+
+### 2. Navigate to User Management
+- Go to **User Administration > Users**  
+- Or use search/filter: `sys_user.list`
+
+---
+
+### 3. Create New MID Server User
+- Click **New**
+- Fill in:
+  - **User ID**: `mid.user`
+  - **First name**: `MID`
+  - **Last name**: `User`
+  - **Password**: *(strong password, save for later use)*
+  - **Active**: ✅
+  - **Web service access only**: ✅
+
+---
+
+### 4. Assign Role
+- In **Roles** related list → **Edit**
+- Add:
+  - `mid_server` ✅ *(Required)*
+- Optional:
+  - `import_transformer`
+  - `ecc_queue_reader`
+  - `ecc_queue_writer`
+
+---
+
+### 5. Save the User
+Click **Save** or **Update**.
+
+---
+
+### 6. Use Account in MID Server Install
+During MID Server installation:
+- **Username**: `mid.user`
+- **Password**: *(from step 3)*
+
+---
+
+##  Communication Process Diagram (Colored ASCII)
+
+> Note: Color display works in terminals that support ANSI escape codes. GitHub will show plain ASCII.
+
+```ansi
+\033[1;34m+-------------------+\033[0m            \033[1;36m+------------------------+\033[0m
+\033[1;34m|  ServiceNow       |\033[0m            \033[1;36m|   MID Server Host      |\033[0m
+\033[1;34m|  (Cloud Instance) |\033[0m<\033[1;32m----------\033[0m>\033[1;36m|   MID Server Service   |\033[0m
+\033[1;34m+-------------------+\033[0m   \033[1;33mHTTPS\033[0m    \033[1;36m+------------------------+\033[0m
+         ^                                   |
+         |                                   |  \033[1;35mProtocols\033[0m
+         |                                   v
+                                   \033[1;32m+--------------------+\033[0m
+                                   \033[1;32m|  Target Systems    |\033[0m
+                                   \033[1;32m|  (Servers, DBs,    |\033[0m
+                                   \033[1;32m|   Apps, etc.)      |\033[0m
+                                   \033[1;32m+--------------------+\033[0m
+
+\033[1;33m1.\033[0m ServiceNow sends jobs to ECC Queue  
+\033[1;33m2.\033[0m MID Server pulls jobs using `mid.user`  
+\033[1;33m3.\033[0m MID Server executes tasks on target systems  
+\033[1;33m4.\033[0m MID Server sends results back to ECC Queue
