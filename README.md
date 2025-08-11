@@ -22,6 +22,7 @@
          |   3. MID Server executes jobs on target systems
          |   4. MID Server sends results back to ServiceNow ECC Queue
 
+```
 ---
 
 ## Steps to Create a MID Server User
