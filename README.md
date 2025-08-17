@@ -12,7 +12,7 @@ Once the MID Server is installed, configured, and linked to the ServiceNow insta
 
 ---
 
-![MID Server Installed in Customer Network/DMZ]()
+![MID Server Installed in Customer Network/DMZ](https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/MID%20Server%20Installed%20in%20Customer%20DMZ.png?raw=true)
 **The MID Server is installed on-prem (within the customer’s network eg, in a DMZ or behind a firewall).**
 **It executes commands and collects data on behalf of the instance.**
 **It’s secure, runs as a Windows service or Linux daemon, and only initiates outbound communication.**
