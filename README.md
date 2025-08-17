@@ -13,6 +13,7 @@ Once the MID Server is installed, configured, and linked to the ServiceNow insta
 ---
 
 ![MID Server Installed in Customer Network/DMZ](https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/MID%20Server%20Installed%20in%20Customer%20DMZ.png?raw=true)
+
 **The MID Server is installed on-prem (within the customer’s network eg, in a DMZ or behind a firewall).**
 **It executes commands and collects data on behalf of the instance.**
 **It’s secure, runs as a Windows service or Linux daemon, and only initiates outbound communication.**
@@ -25,7 +26,7 @@ Once the MID Server is installed, configured, and linked to the ServiceNow insta
 MID Servers play a pivotal role in ensuring smooth and efficient communication between ServiceNow and other external systems, enabling comprehensive data integration and automated workflows. By leveraging MID Servers, organizations can significantly enhance their IT service management capabilities, improving process efficiency and drastically reducing the reliance on manual efforts.
 
 ---
-![What a MID Server Does]()
+![What a MID Server Does](https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/What%20MID%20Server%20Does.png?raw=true)
 
 Organizations frequently deploy MID Servers to establish connections with various on-premises databases, applications, and services, thereby streamlining operational workflows and improving overall data accessibility. This streamlined approach not only enhances productivity but also reduces the potential for errors that can occur during manual data handling.
 
