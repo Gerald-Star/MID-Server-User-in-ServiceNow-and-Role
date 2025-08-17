@@ -6,6 +6,32 @@ The Management, Instrumentation, and Discovery (MID) Server is a sophisticated J
 
 ![ServiceNow Mid Server Usage](https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/ServiceNow%20MID%20Server.png?raw=true)
 
+--
+
+```plaintext
+      +----------------------+
+                   |  ServiceNow Instance |
+                   |   (cloud-based)      |
+                   +----------------------+
+                             ▲
+                             │ REST/SOAP
+                             │
+                      +-------------+
+                      |  MID Server |
+                      | (Windows/Linux)
+                      +-------------+
+                             │
+        ┌────────────────────┼─────────────────────┐
+        │                    │                     │
++---------------+   +----------------+   +-----------------+
+| On-Prem Tools |   | Infrastructure |   | External APIs   |
+| (e.g. SCCM,   |   | (e.g. Servers,  |   | (e.g. AWS, LDAP)|
+| SolarWinds)   |   | Routers, etc.) |   |                 |
++---------------+   +----------------+   +-----------------+
+
+
+```
+
 For a strategic investment in ServiceNow Discovery, intending to identify and monitor various assets and services within its operational environment. To effectively accomplish this goal, it is crucial to have a validated and fully operational MID Server in place.
 
 Once the MID Server is installed, configured, and linked to the ServiceNow instance, it must undergo a validation process. This step is critical, as only a validated MID Server can authenticate and access automation credentials or execute outbound ECC (External Communication Channel) probes, which are essential for discovering and interfacing with external systems.
@@ -57,9 +83,9 @@ IT professionals often collaborate and utilize best practices to optimize the de
          |   4. MID Server sends results back to ServiceNow ECC Queue
 
 ```
+---
 
-
-![Lab: Created MID server User and Role]()
+![Lab: Create MID server User and Role](https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/Create%20a%20MID%20Server%20User%20Add%20roles.png?raw=true)
 
 ---
 
