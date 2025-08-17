@@ -1,5 +1,5 @@
 
-# MID Server Application Communication Process in ServiceNow - Create a MID Server and Validate MID Server
+# MID Server Application Communication Process in ServiceNow - Create a MID Server, Role and Validation (ITOM)
 ## How To Create a MID Server User in ServiceNow
 
 The Management, Instrumentation, and Discovery (MID) Server is a sophisticated Java application designed to operate as a Windows service or a UNIX daemon within a server in an enterprise local area network (LAN). Its primary function is to facilitate robust communication and seamless data transfer between a ServiceNow instance and various external applications, data sources, devices, applications or services that reside within a customer's network (behind firewall). It's used by several applications, primarily in the IT Operations Management (ITOM) and Integration space.
