@@ -9,7 +9,7 @@ The Management, Instrumentation, and Discovery (MID) Server is a sophisticated J
 --
 
 ```plaintext
-      +----------------------+
+                   +----------------------+
                    |  ServiceNow Instance |
                    |   (cloud-based)      |
                    +----------------------+
@@ -28,7 +28,6 @@ The Management, Instrumentation, and Discovery (MID) Server is a sophisticated J
 | (e.g. SCCM,   |   | (e.g. Servers,  |   | (e.g. AWS, LDAP)|
 | SolarWinds)   |   | Routers, etc.) |   |                 |
 +---------------+   +----------------+   +-----------------+
-
 
 ```
 
