@@ -4,7 +4,8 @@
 
 The Management, Instrumentation, and Discovery (MID) Server is a sophisticated Java application designed to operate as a Windows service or a UNIX daemon within a server in an enterprise local area network (LAN). Its primary function is to facilitate robust communication and seamless data transfer between a ServiceNow instance and various external applications, data sources, devices, applications or services that reside within a customer's network (behind firewall). It's used by several applications, primarily in the IT Operations Management (ITOM) and Integration space.
 
-[ServiceNow Mid Server Usage](https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/ServiceNow%20MID%20Server.png?raw=true)
+## ServiceNow Mid Server Usage 
+(https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/ServiceNow%20MID%20Server.png?raw=true)
 
 --
 
@@ -36,7 +37,7 @@ For a strategic investment in ServiceNow Discovery, intending to identify and mo
 Once the MID Server is installed, configured, and linked to the ServiceNow instance, it must undergo a validation process. This step is critical, as only a validated MID Server can authenticate and access automation credentials or execute outbound ECC (External Communication Channel) probes, which are essential for discovering and interfacing with external systems.
 
 ---
-
+**MID Server Installed in Customer Network/DMZ**
 ![MID Server Installed in Customer Network/DMZ](https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/MID%20Server%20Installed%20in%20Customer%20DMZ.png?raw=true)
 
 **The MID Server is installed on-prem (within the customer’s network eg, in a DMZ or behind a firewall).**
@@ -168,7 +169,45 @@ This step is critical, as only a validated MID Server can authenticate and acces
 
 ## ServiceNow Applications that Use a MID Server
 
-![ServiceNow Applications that use a MID Server]()
+```plaintext
+              +-----------------------+
+                          |  ServiceNow Instance  |
+                          +----------+------------+
+                                     |
+                                 REST/SOAP
+                                     |
+                          +----------v-----------+
+                          |      MID Server      |
+                          |   (Windows/Linux)    |
+                          +----------+-----------+
+                                     |
+     +----------------+-------------+---------------+------------------+
+     |                |                             |                  |
++----v----+     +-----v-----+                 +-----v-----+      +-----v-----+
+|Discovery|     |Orchestration|               |Cloud Mgmt|      |Event Mgmt |
++---------+     +-----------+                 +-----------+      +-----------+
+     |                |                             |                  |
+     |         +------v-------+             +--------v------+   +------v------+
+     |         | LDAP/SCCM    |             | AWS, Azure    |   | Monitoring   |
+     |         +--------------+             +---------------+   | Tools (e.g.  |
+     |                                                       |   | SolarWinds) |
+     |                                                       +---------------+
+     |
++----v-----+
+| Service  |
+| Mapping  |
++----------+
+     |
++----v-----+        +------------+
+|   CMDB   |<-------+ Integration|
++----------+        +------------+
+                       |
+               +-------v--------+
+               | IntegrationHub |
+               | (Spokes, APIs) |
+               +----------------+
+
+```
 
 | Application/Feature                   | Purpose of MID Server                         |
 | ------------------------------------- | --------------------------------------------- |
