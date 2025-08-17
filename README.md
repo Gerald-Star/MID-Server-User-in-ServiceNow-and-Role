@@ -4,7 +4,7 @@
 
 The Management, Instrumentation, and Discovery (MID) Server is a sophisticated Java application designed to operate as a Windows service or a UNIX daemon within a server in an enterprise local area network (LAN). Its primary function is to facilitate robust communication and seamless data transfer between a ServiceNow instance and various external applications, data sources, devices, applications or services that reside within a customer's network (behind firewall). It's used by several applications, primarily in the IT Operations Management (ITOM) and Integration space.
 
-![ServiceNow Mid Server Usage]()
+![ServiceNow Mid Server Usage](https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/ServiceNow%20MID%20Server.png?raw=true)
 
 For a strategic investment in ServiceNow Discovery, intending to identify and monitor various assets and services within its operational environment. To effectively accomplish this goal, it is crucial to have a validated and fully operational MID Server in place.
 
