@@ -164,7 +164,7 @@ role.insert();
 
 This step is critical, as only a validated MID Server can authenticate and access automation credentials or execute outbound ECC (External Communication Channel) probes, which are essential for discovering and interfacing with external systems.
 
-![Validate a MID Server]()
+![Validate a MID Server](https://github.com/Gerald-Star/MID-Server-User-in-ServiceNow-and-Role/blob/main/Validate%20a%20mid%20server.png?raw=true)
 
 
 ## ServiceNow Applications that Use a MID Server
