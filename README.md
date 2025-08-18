@@ -5,7 +5,8 @@ The Management, Instrumentation, and Discovery (MID) Server is a sophisticated J
 
 **ServiceNow Mid Server Usage** 
 
-
+MID Server is central to Discovery, Service Mapping, and Orchestration.
+Service Mapping relies on MID Server + Discovery to map business services to infrastructure.
 --
 
 ```plaintext
